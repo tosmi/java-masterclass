@@ -54,9 +54,42 @@ public class Main {
             System.out.println("You got the high score");
         }
 
-        int secondTopScore = 81;
-        if (topScore > secondTopScore && topScore < 100) {
+        int secondTopScore = 95;
+        if ((topScore > secondTopScore) && (topScore < 100)) {
             System.out.println("Greater than second top score and less than 100");
+        }
+
+        if ((topScore > 90) || (secondTopScore <= 90)) {
+            System.out.println("Either or both of the conditions are true");
+        }
+
+        int newValue = 50;
+        if (newValue == 50) {
+            System.out.println("This is true");
+        }
+
+        boolean isCar = false;
+        if(isCar) {
+            System.out.println("This is not supposed to happen");
+        }
+
+        isCar = true;
+        boolean wasCar = isCar ? true : false;
+        if (wasCar) {
+            System.out.println("wasCar is true");
+        }
+
+        // Challange
+        double firstDouble = 20d;
+        double secondDouble = 80d;
+        double stepThreeResult = (firstDouble + secondDouble) * 100d;
+        System.out.println("stepThreeResult: " + stepThreeResult);
+        double remainder = stepThreeResult % 40d;
+        System.out.println("remainder: " + remainder);
+        boolean isNoRemainder = (remainder == 0) ? true : false;
+        System.out.println("isZero: " + isNoRemainder);
+        if(!isNoRemainder) {
+            System.out.printf("Got a remainder");
         }
     }
 }
