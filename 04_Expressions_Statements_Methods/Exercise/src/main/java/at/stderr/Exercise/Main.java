@@ -1,5 +1,6 @@
 package at.stderr.Exercise;
 
+import static at.stderr.Exercise.DecimalOperator.areEqualByThreeDecimalPlaces;
 import static at.stderr.Exercise.MegaBytesConverter.printMegaBytesAndKiloBytes;
 import static at.stderr.Exercise.SpeedConverter.printConversion;
 
@@ -10,9 +11,6 @@ import static at.stderr.Exercise.SpeedConverter.printConversion;
 public class Main 
 {
     public static void main( String[] args ) {
-        printConversion(25.42);
-        printConversion(-2.0);
-
-        printMegaBytesAndKiloBytes(2500);
+        areEqualByThreeDecimalPlaces(3.1234, 3.1235);
     }
 }
