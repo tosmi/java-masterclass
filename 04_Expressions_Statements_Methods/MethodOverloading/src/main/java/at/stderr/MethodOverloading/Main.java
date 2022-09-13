@@ -1,5 +1,7 @@
 package at.stderr.MethodOverloading;
 
+import static at.stderr.MethodOverloading.SecondsAndMinutes.getDurationString;
+
 /**
  * Hello world!
  *
@@ -7,11 +9,13 @@ package at.stderr.MethodOverloading;
 public class Main 
 {
     public static void main( String[] args ) {
-        int newScore = calculateScore("Toni", 500);
-        System.out.println("New score is " + newScore);
+//        int newScore = calculateScore("Toni", 500);
+//        System.out.println("New score is " + newScore);
+//
+//        calculateScore(75);
+//        calculateScore();
 
-        calculateScore(75);
-        calculateScore();
+        getDurationString(59, 59);
     }
 
     public static int calculateScore(String playerName, int score) {
