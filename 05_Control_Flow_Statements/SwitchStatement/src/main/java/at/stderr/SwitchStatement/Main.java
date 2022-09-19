@@ -57,5 +57,8 @@ public class Main
                 break;
         }
 
+        DayOfTheWeekChallange.printDayOfTheWeek(0);
+        DayOfTheWeekChallange.printDayOfTheWeek(8);
+
     }
 }
