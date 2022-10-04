@@ -39,12 +39,18 @@ public class Main
         // challange
         int number = 4;
         int finishNumber = 20;
+        int evenNumbers = 0;
         while(number <= finishNumber) {
             number++;
             if ( !isEven(number) ) {
                 continue;
             }
+
+            evenNumbers++;
             System.out.println("Even number " + number);
+            if (evenNumbers == 4 ) {
+                break;
+            }
         }
 
     }
