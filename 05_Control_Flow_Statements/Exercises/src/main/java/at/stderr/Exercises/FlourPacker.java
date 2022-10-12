@@ -11,8 +11,9 @@ public class FlourPacker {
 
         if (bigCountKilos + smallCount < goal) {
             return false;
-        } else if (bigCountKilos > goal) {
-            return false;
+        } else if (bigCountKilos > goal || goal < 5) {
+            int smallCountRequired = goal % 5;
+            return smallCount >= smallCountRequired;
         }
         return true;
     }
