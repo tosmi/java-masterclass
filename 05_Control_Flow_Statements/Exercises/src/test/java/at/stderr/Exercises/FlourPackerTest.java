@@ -19,4 +19,7 @@ public class FlourPackerTest {
         assertTrue(FlourPacker.canPack(6,2,17));
 
     }
+
+    public static class LargestPrimeTest {
+    }
 }
