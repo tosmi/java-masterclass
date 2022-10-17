@@ -22,6 +22,11 @@ public class Account {
         this.phoneNumber = phoneNumber;
     }
 
+    public Account(String customerName, String eMail, String phoneNumber) {
+        this("99999", 100.5, customerName, eMail, phoneNumber);
+        System.out.println("Constructor with SOME vars called");
+    }
+
     public String getNumber() {
         return number;
     }
