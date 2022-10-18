@@ -32,8 +32,8 @@ class ComplexNumberTest {
 
         two.subtract(one);
         assertAll(
-                () -> assertEquals(3.0, one.getReal()),
-                () -> assertEquals(-5.0, one.getImaginary())
+                () -> assertEquals(3.0, two.getReal()),
+                () -> assertEquals(-5.0, two.getImaginary())
         );
     }
 
