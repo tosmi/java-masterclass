@@ -24,6 +24,10 @@ public class Main
         EnhancedPlayer player = new EnhancedPlayer("Toni", 200, "Sword");
         System.out.println("Initial health is " + player.getHealth());
 
+        Printer printer = new Printer(50, true);
+
+        printer.printPages(50);
+        System.out.println("Printer pages printed: " + printer.getPagesPrinted());
 
 
 
