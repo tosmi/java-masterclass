@@ -29,28 +29,39 @@ public class Hamburger {
         this.addition3Price = 0.0;
         this.addition4Name = "";
         this.addition4Price = 0.0;
+
+        System.out.println(name + " hamburger on a " +
+                breadRollType + " with " +
+                meat + ", price is " +
+                price);
     }
 
     public void addHamburgerAddition1(String name, double price) {
         this.addition1Name = name;
         this.addition1Price = price;
+        System.out.println("Added " + name + " for an extra " + price);
     }
 
     public void addHamburgerAddition2(String name, double price) {
         this.addition2Name = name;
         this.addition2Price = price;
+        System.out.println("Added " + name + " for an extra " + price);
     }
     public void addHamburgerAddition3(String name, double price) {
         this.addition3Name = name;
         this.addition3Price = price;
+        System.out.println("Added " + name + " for an extra " + price);
     }
 
     public void addHamburgerAddition4(String name, double price) {
         this.addition4Name = name;
         this.addition4Price = price;
+        System.out.println("Added " + name + " for an extra " + price);
     }
 
-    public double itemizehamburger() {
-        return price + addition1Price + addition2Price + addition3Price + addition4Price;
+    public double itemizeHamburger() {
+        return price+addition1Price + addition2Price + addition3Price + addition4Price;
     }
+
+
 }
