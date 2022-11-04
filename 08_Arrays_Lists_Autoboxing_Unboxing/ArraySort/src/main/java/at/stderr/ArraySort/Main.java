@@ -32,10 +32,18 @@ public class Main
 
         // 5 4 3 2 1
         for(int i = 0; i < unsorted.length - 1; i++) {
+            System.out.println(i);
             if (unsorted[i] > unsorted[i+1]) {
-                tmp=unsorted[i+1];
-                unsorted[i] = unsorted[i+1];
-                unsorted[i+1] = tmp;
+                System.out.println("before i: " + i + " unsorted[i]: " + unsorted[i] + " unsorted[i+1]: " + unsorted[i+1]);
+//                tmp=unsorted[i];
+//                unsorted[i] = unsorted[i+1];
+//                unsorted[i+1] = tmp;
+                unsorted[i] |= unsorted[i+1];
+                unsorted[i+1] = unsorted[i] | unsorted[i+1];
+                unsorted[i] = unsorted[i] | unsorted[i+1];
+
+                System.out.println("after i: " + i + " unsorted[i]: " + unsorted[i] + " unsorted[i+1]: " + unsorted[i+1]);
+                i=-1;
             }
         }
 
