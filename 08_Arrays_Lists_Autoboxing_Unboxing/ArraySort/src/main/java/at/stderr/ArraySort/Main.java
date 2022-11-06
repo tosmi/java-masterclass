@@ -1,5 +1,7 @@
 package at.stderr.ArraySort;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -11,12 +13,21 @@ public class Main
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main( String[] args ) {
-        int[] unsorted = getUnsortedIntegers(5);
-        int [] sorted = sortIntegerArray(unsorted);
+        int[] unsorted = getIntegers(2);
+        int [] sorted = sortIntegers(unsorted);
+
+        for(int i: unsorted) {
+            System.out.println(i);
+        }
+
+        System.out.println(Arrays.toString(unsorted));
+        System.out.println(Arrays.toString(sorted));
+
+        printArray(sorted);
 
     }
 
-    private static int[] getUnsortedIntegers(int n) {
+    private static int[] getIntegers(int n) {
         int[] integers = new int[n];
 
         System.out.println("Please enter " + n + " integers:");
@@ -26,30 +37,26 @@ public class Main
         return integers;
     }
 
-    public static int[] sortIntegerArray(int[] unsorted) {
-        int tmp;
-        int[] sorted = new int[unsorted.length];
+    public static int[] sortIntegers(int[] unsorted) {
+        int[] sorted = Arrays.copyOf(unsorted, unsorted.length);
 
-        // 5 4 3 2 1
-        for(int i = 0; i < unsorted.length - 1; i++) {
-            System.out.println(i);
-            if (unsorted[i] > unsorted[i+1]) {
-                System.out.println("before i: " + i + " unsorted[i]: " + unsorted[i] + " unsorted[i+1]: " + unsorted[i+1]);
-//                tmp=unsorted[i];
-//                unsorted[i] = unsorted[i+1];
-//                unsorted[i+1] = tmp;
-                unsorted[i] |= unsorted[i+1];
-                unsorted[i+1] = unsorted[i] | unsorted[i+1];
-                unsorted[i] = unsorted[i] | unsorted[i+1];
-
-                System.out.println("after i: " + i + " unsorted[i]: " + unsorted[i] + " unsorted[i+1]: " + unsorted[i+1]);
+        for(int i = 0; i < sorted.length - 1; i++) {
+            if (sorted[i] < sorted[i+1]) {
+//                tmp=sorted[i];
+//                sorted[i] = sorted[i+1];
+//                sorted[i+1] = tmp;
+                sorted[i] = sorted[i] ^ sorted[i+1];
+                sorted[i+1] = sorted[i+1] ^ sorted[i];
+                sorted[i] = sorted[i] ^ sorted[i+1];
                 i=-1;
             }
         }
+        return sorted;
+    }
 
-        for(int i: unsorted) {
-            System.out.println(i);
+    public static void printArray(int[] array) {
+        for(int i = 0; i < array.length; i++) {
+            System.out.println("Element " + i + " contents " + array[i]);
         }
-        return unsorted;
     }
 }
