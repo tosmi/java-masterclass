@@ -19,6 +19,6 @@ public class MainTest
         final int[] sorted = {1,2,3,4,5};
         final int[] unsorted = {5,4,3,2,1};
 
-        assertArrayEquals(sorted, Main.sortIntegerArray(unsorted));
+        assertArrayEquals(sorted, Main.sortIntegers(unsorted));
     }
 }
