@@ -26,6 +26,8 @@ public class Album {
     }
 
     public boolean addToPlaylist(int track, LinkedList<Song> playlist) {
+        if ( track > (songs.size() - 1) ) return false;
+        playlist.add(songs.get(track));
         return true;
     }
 
