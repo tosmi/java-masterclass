@@ -1,6 +1,5 @@
 package at.stderr.Playlist;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -25,9 +24,18 @@ public class Album {
         return true;
     }
 
-    public boolean addToPlaylist(int track, LinkedList<Song> playlist) {
-        if ( track > (songs.size() - 1) ) return false;
-        playlist.add(songs.get(track));
+    public boolean addToPlayList(int track, LinkedList<Song> playlist) {
+        if ( track < 1 || track > songs.size() ) return false;
+        playlist.add(songs.get(track - 1));
+        return true;
+    }
+
+    public boolean addToPlayList(String title, LinkedList<Song> playlist) {
+        Song s = findSong(title);
+
+        if (s == null) return false;
+
+        playlist.add(s);
         return true;
     }
 
@@ -39,6 +47,4 @@ public class Album {
         // XXX: should return an UNKNOWN song?
         return null;
     }
-
-
 }
