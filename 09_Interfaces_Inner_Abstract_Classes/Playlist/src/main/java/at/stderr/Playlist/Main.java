@@ -9,6 +9,19 @@ import java.util.*;
 public class Main 
 {
     public static void main( String[] args ) {
+        //runAlbum();
+
+        runContains();
+    }
+
+    public static void runContains() {
+        Contains c = new Contains();
+
+        c.run();
+    }
+    public static void runAlbum() {
+
+
         ArrayList<Album> albums = new ArrayList<>();
 
         Album album = new Album("Stormbringer", "Deep Purple");
@@ -53,6 +66,7 @@ public class Main
         ListIterator<Song> listIterator = playList.listIterator();
         if(playList.size() == 0) {
             System.out.println("No songs in playlist");
+
             return;
         } else {
             System.out.println("Now playing " + listIterator.next().toString());
