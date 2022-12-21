@@ -14,6 +14,18 @@ public class Contains {
         System.out.println(second);
         System.out.println(third);
 
+        ar.add(first);
+        ar.add(second);
+
+        System.out.println("Is first object in arraylist? " + ar.contains(first));
+        System.out.println("Is third object in arraylist? " + ar.contains(third));
+
+        Album a = new Album("Test Album", "Test Artist");
+        a.addSong("Testsong", 1.0);
+        a.addSong("Testsong", 1.0);
+
+
+
     }
 
 

@@ -37,6 +37,8 @@ public class Album {
             if (this.songs.contains(song)) {
                 return false;
             }
+
+            System.out.println("Adding song " + song);
             this.songs.add(song);
             return true;
         }
@@ -53,6 +55,8 @@ public class Album {
             if ( track < 1 || track > songs.size() ) return null;
             return this.songs.get(track - 1);
         }
+
+
     }
 
     public boolean addSong(String title, double duration) {

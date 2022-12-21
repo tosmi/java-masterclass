@@ -17,4 +17,18 @@ public class Song {
     public String toString() {
         return this.title + ": " + this.duration;
     }
+
+    @Override
+    public boolean equals(Object otherObject) {
+        if (this == otherObject) return true;
+        if (otherObject == null) return false;
+
+        if (this.getClass() != otherObject.getClass() )
+            return false;
+
+        Song other = (Song) otherObject;
+
+        return this.title.equals(other.getTitle());
+
+    }
 }
