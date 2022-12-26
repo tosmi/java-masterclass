@@ -10,8 +10,14 @@ public class Main
 {
     public static void main( String[] args ) {
         //runAlbum();
+        var t = test();
+        System.out.println(t);
+        //runContains();
+    }
 
-        runContains();
+    public static int test() {
+        int i;
+        return i = 5;
     }
 
     public static void runContains() {
