@@ -9,9 +9,11 @@ import java.util.Scanner;
 public class Main 
 {
     public static void main( String[] args ) {
-        MinAndMaxChallange.minAndMaxChallange();
-        // SumOfNumbers.calculateSum();
+        //MinAndMaxChallange.minAndMaxChallange();
+         SumOfNumbers.calculateSum();
         // calculateAge();
+
+        //ConsoleVsScanner.run();
     }
     public static void calculateAge() {
         Scanner scanner = new Scanner(System.in);
