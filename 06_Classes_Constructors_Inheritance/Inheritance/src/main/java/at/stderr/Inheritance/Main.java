@@ -13,6 +13,15 @@ public class Main
         dog.eat();
         dog.walk();
         dog.run();
+        doAnimalStuff(animal, 5);
+        doAnimalStuff(dog, 5);
+        doAnimalStuff(new Dog("Wolf", 8, 20,2, 4,1,20, "long silky"), 8);
+    }
 
+    public static void doAnimalStuff(Animal animal, int speed) {
+        animal.makeNoise();
+        animal.move(speed);
+        System.out.println(animal);
+        System.out.println("_ _ _ _ _");
     }
 }

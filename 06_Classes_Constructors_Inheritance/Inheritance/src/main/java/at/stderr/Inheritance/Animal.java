@@ -1,14 +1,15 @@
 package at.stderr.Inheritance;
 
 public class Animal {
-    private String name;
+    // used in the dog class
+    protected String type;
     private int brain;
     private int body;
     private int size;
     private int weight;
 
-    public Animal(String name, int brain, int body, int size, int weight) {
-        this.name = name;
+    public Animal(String type, int brain, int body, int size, int weight) {
+        this.type = type;
         this.brain = brain;
         this.body = body;
         this.size = size;
@@ -23,8 +24,8 @@ public class Animal {
         System.out.println("Animal.move() called. Animal is moving at " + speed);
     }
 
-    public String getName() {
-        return name;
+    public String getType() {
+        return this.type;
     }
 
     public int getBrain() {
@@ -43,5 +44,18 @@ public class Animal {
         return weight;
     }
 
+    public void makeNoise() {
+        System.out.println(type + " makes some kind of noise");
+    }
 
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "type='" + type + '\'' +
+                ", brain=" + brain +
+                ", body=" + body +
+                ", size=" + size +
+                ", weight=" + weight +
+                '}';
+    }
 }

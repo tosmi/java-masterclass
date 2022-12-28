@@ -7,8 +7,8 @@ public class Dog extends Animal {
     private int teeth;
     private String coat;
 
-    public Dog(String name,int size, int weight, int eyes, int legs, int tail, int teeth, String coat) {
-        super(name, 1, 1, size, weight);
+    public Dog(String type,int size, int weight, int eyes, int legs, int tail, int teeth, String coat) {
+        super(type, 1, 1, size, weight);
         this.eyes = eyes;
         this.legs = legs;
         this.tail = tail;
@@ -47,5 +47,23 @@ public class Dog extends Animal {
         System.out.println("Dog.move() called");
         moveLegs();
         super.move(speed);
+    }
+
+    @Override
+    public void makeNoise() {
+        if (type == "Wolf")
+            System.out.println("Woooo");
+        super.makeNoise();
+    }
+
+    @Override
+    public String toString() {
+        return "Dog{" +
+                "eyes=" + eyes +
+                ", legs=" + legs +
+                ", tail=" + tail +
+                ", teeth=" + teeth +
+                ", coat='" + coat + '\'' +
+                "} " + super.toString();
     }
 }
