@@ -11,6 +11,9 @@ public class Main
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main( String[] args ) {
+        int[] aArray = new int[]{0,1,2,3,4};
+        int[] anotherArray = {0,1,2,3,4,5};
+
         int[] myInteger = getIntegers(5);
         for (int i = 0; i < myInteger.length; i++) {
             System.out.println("Element " + i + ", typed values was " + myInteger[i]);
