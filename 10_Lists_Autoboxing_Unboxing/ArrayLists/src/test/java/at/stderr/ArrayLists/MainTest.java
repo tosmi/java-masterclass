@@ -1,4 +1,4 @@
-package at.stderr.ReferenceTypesValueTypes;
+package at.stderr.ArrayLists;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
