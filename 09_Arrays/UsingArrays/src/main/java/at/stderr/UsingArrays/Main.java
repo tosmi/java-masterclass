@@ -43,7 +43,7 @@ public class Main
             System.out.println("Found Mark in the list");
 
         int[] s1 = { 1,2,3,4,5};
-        int[] s2 = { 1,2,3,4,5,0 };
+        int[] s2 = { 1,2,3,4,5,0};
         if (Arrays.equals(s1,s2))
             System.out.println("Arrays are equal");
         else

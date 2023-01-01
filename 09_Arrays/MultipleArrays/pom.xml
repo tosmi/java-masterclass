@@ -4,8 +4,8 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>at.stderr.MinElementChallange</groupId>
-  <artifactId>MinElementChallenge</artifactId>
+  <groupId>at.stderr.MultipleArrays</groupId>
+  <artifactId>MultipleArrays</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <parent>
@@ -43,7 +43,7 @@
           </execution>
         </executions>
         <configuration>
-          <mainClass>at.stderr.MinElementChallange.MinElementChallange.Main</mainClass>
+          <mainClass>at.stderr.MultipleArrays.MultipleArrays.Main</mainClass>
         </configuration>
       </plugin>
     </plugins>

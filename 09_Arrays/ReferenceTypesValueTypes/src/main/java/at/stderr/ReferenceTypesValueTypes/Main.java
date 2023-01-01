@@ -40,6 +40,6 @@ public class Main
 
     private static void modifyArray(int[] array) {
         array[0] = 2;
-        array = new int[] { 1,2,3,4,5 };
+        // array = new int[] { 1,2,3,4,5 };
     }
 }
