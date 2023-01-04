@@ -1,5 +1,6 @@
 package at.stderr.ArrayListChallenge;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -8,28 +9,19 @@ import java.util.Scanner;
  */
 public class Main 
 {
+    private static GroceryList groceryList = new GroceryList();
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main( String[] args ) {
         run();
     }
 
     public static void run() {
-        Scanner scanner = new Scanner(System.in);
         boolean shutdown = false;
-        GroceryList groceryList = new GroceryList();
 
         while(!shutdown) {
             displayMenu();
-
-            var line = scanner.nextLine();
-            var input = Integer.parseInt(line);
-
-            switch (input) {
-                case 0 -> shutdown = true;
-                case 1 -> groceryList.addItems();
-                case 2 -> groceryList.removeItems();
-                default -> throw new IllegalStateException("Unexpected value: " + input);
-            }
+            shutdown = parseMenu();
         }
     }
 
@@ -43,5 +35,29 @@ public class Main
 
                 Enter a number for which action you want to do
                 """);
+    }
+
+    private static boolean parseMenu() {
+        var line = scanner.nextLine();
+        var input = Integer.parseInt(line);
+
+        switch (input) {
+            case 0 -> { return true; }
+            case 1 -> addItems();
+            case 2 -> removeItems();
+            default -> throw new IllegalStateException("Unexpected value: " + input);
+        }
+        return false;
+    }
+
+
+    private static void addItems() {
+        System.out.println("Enter a comma separated list of items:");
+        var line = scanner.nextLine();
+        groceryList.addItems(line.split(","));
+    }
+
+    private static void removeItems() {
+
     }
 }
