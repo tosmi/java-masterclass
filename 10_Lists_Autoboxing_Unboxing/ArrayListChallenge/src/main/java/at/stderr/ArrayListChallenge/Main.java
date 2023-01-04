@@ -55,6 +55,7 @@ public class Main
         System.out.println("Enter a comma separated list of items:");
         var line = scanner.nextLine();
         groceryList.addItems(line.split(","));
+        groceryList.listItems();
     }
 
     private static void removeItems() {

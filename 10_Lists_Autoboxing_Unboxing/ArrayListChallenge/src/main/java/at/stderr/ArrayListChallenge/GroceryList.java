@@ -20,5 +20,9 @@ public class GroceryList {
             }
         }
     }
+
+    public void listItems() {
+        System.out.println(groceryList.toString());
+    }
 }
 
