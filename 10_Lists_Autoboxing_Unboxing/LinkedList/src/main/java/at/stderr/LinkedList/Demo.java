@@ -10,7 +10,9 @@ import java.util.Scanner;
 public class Demo {
 
     public static void main(String[] args) {
-        LinkedList<String> placesToVisit = new LinkedList<>();
+//        LinkedList<String> placesToVisit = new LinkedList<>();
+        var placesToVisit = new LinkedList<String>();
+
 //        placesToVisit.add("Sidney");
 //        placesToVisit.add("Melbourne");
 //        placesToVisit.add("Brisbane");
