@@ -52,13 +52,20 @@ public class Main
 
 
     private static void addItems() {
-        System.out.println("Enter a comma separated list of items:");
-        var line = scanner.nextLine();
+        var line = readLine("Enter a comma separated list of items to add:");
         groceryList.addItems(line.split(","));
         groceryList.listItems();
     }
 
     private static void removeItems() {
+        var line = readLine("Enter a comma separated list of items to remove:");
+        groceryList.removeItems(line.split(","));
+        groceryList.listItems();
 
+    }
+
+    private static String readLine(String message) {
+        System.out.println(message);
+        return scanner.nextLine();
     }
 }
