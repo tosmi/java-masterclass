@@ -109,7 +109,7 @@ public class Java17Demo {
         System.out.println("Trip starts " + list.getFirst());
         String previousTown = list.getFirst();
 
-        ListIterator<String> iterator = list.listIterator(1
+        ListIterator<String> iterator = list.listIterator(1);
         while(iterator.hasNext()) {
             var town = iterator.next();
             System.out.println("--> From: " + previousTown + " to " + town);
