@@ -11,24 +11,27 @@ import java.util.Scanner;
 public class Main
 {
     private static final Scanner scanner = new Scanner(System.in);
-    private static final Itineray itinery = new Itineray();
+    private static final Itineray itineray = new Itineray();
 
     public static void main( String[] args ) {
+        itineray.addPlace(new Place("Adelaide", 1374));
+        itineray.addPlace(new Place("Alice Springs", 2771));
+        itineray.addPlace(new Place("Brisbane", 917));
+        itineray.addPlace(new Place("Darwin", 3972));
+        itineray.addPlace(new Place("Melbourne", 877));
+        itineray.addPlace(new Place("Perth", 3923));
 
-//        itineray.add(new Place("Adelaide", 1374));
-//        itineray.add(new Place("Alice Springs", 2771));
-//        itineray.add(new Place("Brisbane", 917));
-//        itineray.add(new Place("Darwin", 3972));
-//        itineray.add(new Place("Melbourne", 877));
-//        itineray.add(new Place("Perth", 3923));
+        itineray.doneAddingPlaces();
+
+        itineray.listPlaces();
 
         boolean quit = false;
         while(!quit) {
             var option = menu();
             switch (option) {
-                case 'f' -> itinery.forward();
-                case 'b' -> itinery.backward();
-                case 'l' -> itinery.listPlaces();
+                case 'f' -> itineray.forward();
+                case 'b' -> itineray.backward();
+                case 'l' -> itineray.listPlaces();
                 case 'm' -> menu();
                 default -> quit = true;
             }
