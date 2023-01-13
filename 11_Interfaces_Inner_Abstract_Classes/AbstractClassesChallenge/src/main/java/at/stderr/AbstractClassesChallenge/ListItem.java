@@ -4,30 +4,29 @@ public abstract class ListItem {
 
     // only subclasses of ListItem will have access to next and previous
     // per default we have no next and previous element in the list so null
-    protected ListItem next = null;
-    protected ListItem previous = null;
+    protected ListItem rightLink = null;
+    protected ListItem leftLink = null;
 
-    Object item;
+    Object value;
 
-    abstract public ListItem next();
-    abstract public ListItem setNext(ListItem item);
-    abstract public ListItem previous();
+    abstract private ListItem next();
+    abstract private ListItem setNext(ListItem item);
+    abstract private ListItem previous();
     abstract public ListItem setPrevious(ListItem item);
     abstract public int compareTo(ListItem other);
 
-     public boolean hasNext() {
-         return !next.equals(null);
-     }
-
-    public boolean hasPrevious() {
-        return !previous.equals(null);
+    public ListItem(Object value) {
+        this.value = value;
     }
 
-    public Object getItem() {
-        return item;
+    public ListItem() {
     }
 
-    public void setItem(Object item) {
-        this.item = item;
+    public void setValue(Object value) {
+        this.value = value;
+    }
+
+    public Object getValue() {
+        return value;
     }
 }
