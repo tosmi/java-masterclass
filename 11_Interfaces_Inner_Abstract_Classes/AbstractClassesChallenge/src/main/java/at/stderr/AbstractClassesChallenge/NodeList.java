@@ -3,6 +3,6 @@ package at.stderr.AbstractClassesChallenge;
 public interface NodeList {
     ListItem getRoot();
     boolean addItem(ListItem item);
-    boolean removeItem();
+    boolean removeItem(ListItem item);
     void traverse(ListItem root);
 }

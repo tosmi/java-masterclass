@@ -7,7 +7,7 @@ public abstract class ListItem {
     protected ListItem rightLink = null;
     protected ListItem leftLink = null;
 
-    Object value;
+    protected Object value;
 
     abstract ListItem next();
     abstract ListItem setNext(ListItem item);

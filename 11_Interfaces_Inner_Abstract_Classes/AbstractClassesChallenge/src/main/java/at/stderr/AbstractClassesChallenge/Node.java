@@ -25,13 +25,13 @@ public class Node extends ListItem {
     }
 
     @Override
-    public ListItem setPrevious(ListItem item) {
+    ListItem setPrevious(ListItem item) {
         this.leftLink = item;
         return this.leftLink;
     }
 
     @Override
-    public int compareTo(ListItem other) {
+    int compareTo(ListItem other) {
         // any value is greater than null
         if (Objects.isNull(other))
             return -1;

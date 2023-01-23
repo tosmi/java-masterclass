@@ -62,7 +62,33 @@ public class MyLinkedList implements NodeList {
     }
 
     @Override
-    public boolean removeItem() {
+    public boolean removeItem(ListItem item) {
+        if ( item != null) {
+            System.out.println("Deleting item " + item.getValue());
+        }
+        ListItem currenItem = this.root;
+        while(currenItem != null) {
+            int comparision = currenItem.compareTo(item);
+            if ( comparision == 0 ) {
+                if(currenItem == this.root) {
+                    this.root = currenItem.next();
+                } else {
+                    currenItem.previous().setNext(currenItem.next());
+                    if(currenItem.next() != null) {
+                        currenItem.next().setPrevious(currenItem.previous());
+                    }
+                }
+
+                return true;
+            } else if (comparision < 0) {
+                currenItem = currenItem.next();
+            } else { // comparision > 1
+                // We are at an item greater than to one to be deleted
+                // so the item is not in the list
+                return false;
+            }
+        }
+        // We have reached the end of the list
         return false;
     }
 
@@ -76,5 +102,12 @@ public class MyLinkedList implements NodeList {
                 root = root.next();
             }
         }
+
+        // bad idea for a link list, because of the possible length of the list
+        // binary try has a way lower depth!!
+//        if ( root != null){
+//            System.out.println(root.getValue());
+//            traverse(root.next());
+//        }
     }
 }
