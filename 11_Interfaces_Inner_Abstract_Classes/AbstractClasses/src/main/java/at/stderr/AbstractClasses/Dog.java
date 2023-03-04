@@ -2,18 +2,19 @@ package at.stderr.AbstractClasses;
 
 import java.sql.SQLOutput;
 
-public class Dog extends Animal{
-    public Dog(String name) {
-        super(name);
+public class Dog extends Animal {
+
+    public Dog(String type, String size, double weight) {
+        super(type, size, weight);
     }
 
     @Override
-    public void eat() {
-        System.out.println(getName() + " is eating");
+    public void move(String speed) {
+
     }
 
     @Override
-    public void breathe() {
-        System.out.println("Breathe in, breathe out, repeat");
+    public void makeNoise() {
+
     }
 }

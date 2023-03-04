@@ -3,17 +3,19 @@ package at.stderr.AbstractClasses;
 import com.sun.source.tree.LabeledStatementTree;
 
 public abstract class Animal {
-    private String name;
+    protected String type;
+    private String size;
+    private double weight;
 
-    public Animal(String name) {
-        this.name = name;
+    public Animal(String type, String size, double weight) {
+        this.type = type;
+        this.size = size;
+        this.weight = weight;
     }
 
-    public abstract void eat();
-    public abstract void breathe();
 
 
-    public String getName() {
-        return name;
-    }
+    public abstract void move(String speed);
+    public abstract void makeNoise();
+
 }
