@@ -1,6 +1,6 @@
 package at.stderr.AbstractClassStoreChallenge;
 
-public class OrderItem {
+public class OrderItemNotUsed {
     private int quantity;
     private ProductForSale item;
 

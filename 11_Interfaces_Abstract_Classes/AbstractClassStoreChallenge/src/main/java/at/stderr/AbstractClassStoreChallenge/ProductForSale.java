@@ -40,7 +40,7 @@ public abstract class ProductForSale {
     }
 
     public void printPricedLine(final int quantity) {
-        System.out.printf("%2d qty at %8.2f each, %-15s %-35s",quantity, price, type, description);
+        System.out.printf("%2d qty at %8.2f each, %-15s %-35s%n",quantity, price, type, description);
     }
 
     public abstract void showDetails();
