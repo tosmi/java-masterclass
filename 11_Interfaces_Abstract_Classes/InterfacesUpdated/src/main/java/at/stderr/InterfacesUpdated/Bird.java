@@ -1,4 +1,7 @@
 package at.stderr.InterfacesUpdated;
 
-public class Bird {
+import javax.sound.midi.Track;
+
+public class Bird extends Animal implements FlightEnabled, Trackable {
+
 }
