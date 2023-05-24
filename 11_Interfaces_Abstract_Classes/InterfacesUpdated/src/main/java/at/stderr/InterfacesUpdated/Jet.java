@@ -1,10 +1,7 @@
 package at.stderr.InterfacesUpdated;
 
-import javax.sound.midi.Track;
+public class Jet implements FlightEnabled, Trackable {
 
-public class Bird extends Animal implements FlightEnabled, Trackable {
-
-    @Override
     public void takeOff() {
         System.out.println(getClass().getSimpleName() + " is taking off");
     }
@@ -22,11 +19,5 @@ public class Bird extends Animal implements FlightEnabled, Trackable {
     @Override
     public void track() {
         System.out.println(getClass().getSimpleName() + " is being tracked");
-    }
-
-    @Override
-    public void move() {
-        System.out.println("Flaps wings");
-
     }
 }
