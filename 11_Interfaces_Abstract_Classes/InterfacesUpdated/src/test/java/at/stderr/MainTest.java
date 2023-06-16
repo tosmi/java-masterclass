@@ -1,4 +1,4 @@
-package at.stderr.InterfacesUpdated;
+package at.stderr;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

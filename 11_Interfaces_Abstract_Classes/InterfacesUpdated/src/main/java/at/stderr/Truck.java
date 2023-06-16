@@ -1,4 +1,4 @@
-package at.stderr.InterfacesUpdated;
+package at.stderr;
 
 public class Truck implements Trackable {
     @Override
