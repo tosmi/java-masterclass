@@ -6,12 +6,16 @@ public interface Mappable {
             """;
 
     String getLabel();
-    GeometryType getGeometry();
-    IconType getIcon();
+    String getMarker();
+    Geometry getShape();
 
-    String toJson();
+    default String toJson() {
+        return """
+                "type": "%s", "label": "%s", "marker": "%s" """
+                .formatted(this.getShape(), this.getLabel(), this.getMarker());
+    }
 
-    public static void print(Mappable m) {
-        System.out.println(m);
+    public static void mapIt(Mappable m) {
+        System.out.println(JSON_PROPERTIES.formatted(m.toJson()));
     }
 }
