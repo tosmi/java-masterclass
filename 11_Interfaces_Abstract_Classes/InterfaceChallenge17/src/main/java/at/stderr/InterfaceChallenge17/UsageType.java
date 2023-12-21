@@ -1,8 +1,9 @@
 package at.stderr.InterfaceChallenge17;
 
-public enum BuildingType {
-    BUSINESS,
+public enum UsageType {
     ENTERTAINMENT,
     RESIDENTIAL,
-    GOVERMENT;
+    GOVERMENT,
+    SPORTS,
+    CASTLE;
 }

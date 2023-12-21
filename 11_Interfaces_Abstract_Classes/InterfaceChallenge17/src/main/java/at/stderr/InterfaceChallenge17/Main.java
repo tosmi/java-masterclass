@@ -1,5 +1,9 @@
 package at.stderr.InterfaceChallenge17;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Hello world!
  *
@@ -7,11 +11,18 @@ package at.stderr.InterfaceChallenge17;
 public class Main 
 {
     public static void main( String[] args ) {
-        Building house = new Building("Schloss Gobelsburg", BuildingType.CASTLE);
-        house.setMarker("RED STAR");
+        List<Mappable> mappables = new ArrayList<>();
 
-        System.out.println(house.toJson());
+        mappables.add(new Building("Sydney Town Hall", UsageType.GOVERMENT));
+        mappables.add(new Building("Sydney Opera House", UsageType.ENTERTAINMENT));
+        mappables.add(new Building("Stadium Australia", UsageType.SPORTS));
 
-        Mappable.mapIt(house);
+        mappables.add(new UtilityLine("Collage St", UtilityType.FIBER_OPTIC));
+        mappables.add(new UtilityLine("Olympic Blvd", UtilityType.WATER));
+
+
+        for (var m : mappables) {
+            Mappable.mapIt(m);
+        }
     }
 }

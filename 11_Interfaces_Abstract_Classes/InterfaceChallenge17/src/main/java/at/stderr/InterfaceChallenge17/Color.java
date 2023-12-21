@@ -1,5 +1,5 @@
 package at.stderr.InterfaceChallenge17;
 
 public enum Color {
-    RED, GREEN, BLUE;
+    RED, GREEN, BLUE, ORANGE, BLACK;
 }

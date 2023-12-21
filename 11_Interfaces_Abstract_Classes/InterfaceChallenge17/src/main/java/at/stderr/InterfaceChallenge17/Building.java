@@ -3,35 +3,38 @@ package at.stderr.InterfaceChallenge17;
 public class Building implements Mappable {
 
     private String name;
-    private BuildingType type;
+    private UsageType usage;
     private String marker;
     private Geometry geometry = Geometry.POINT;
 
-    public Building(String name, BuildingType type) {
+    public Building(String name, UsageType usage) {
         this.name = name;
-        this.type = type;
+        this.usage = usage;
     }
 
     @Override
     public String getLabel() {
-        return name + " (" + this.type + ")";
+        return name + " (" + this.usage + ")";
     }
 
-    public void setMarker(String marker) {
-        return switch(type) {
-            case BUSINESS -> null;
+    public String getMarker() {
+        return switch(usage) {
             case ENTERTAINMENT -> Color.GREEN + " " + PointMarker.TRIANGLE;
             case GOVERMENT -> Color.RED + " " + PointMarker.STAR;
-        }
-    }
-
-    @Override
-    public String getMarker() {
-        return this.marker;
+            case RESIDENTIAL -> Color.BLUE + " " + PointMarker.SQUARE;
+            case SPORTS -> Color.ORANGE + " " + PointMarker.PUSH_PIN;
+            default -> Color.BLACK + " " + PointMarker.CIRCLE;
+        };
     }
 
     @Override
     public Geometry getShape() {
         return Geometry.POINT;
+    }
+
+    @Override
+    public String toJson() {
+        return Mappable.super.toJson() + """
+                , "name": "%s", "usage": "%s" """.formatted(name, usage);
     }
 }

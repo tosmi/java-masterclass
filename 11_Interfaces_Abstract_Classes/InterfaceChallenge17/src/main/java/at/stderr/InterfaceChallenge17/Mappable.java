@@ -2,8 +2,7 @@ package at.stderr.InterfaceChallenge17;
 
 public interface Mappable {
     String JSON_PROPERTIES = """
-            "properties":{%s}
-            """;
+            "properties":{%s}""";
 
     String getLabel();
     String getMarker();
