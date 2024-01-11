@@ -1,8 +1,6 @@
 package at.stderr.GenericsChallenge;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class Line implements Mappable {
     private String name;
