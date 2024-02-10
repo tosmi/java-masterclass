@@ -7,7 +7,7 @@ public class Line implements Mappable {
     private List<Coordinates> coordinates;
     @Override
     public void render() {
-        System.out.println(name + " as " + this.getClass().getSimpleName().toUpperCase()  + " " + coordinates + ")");
+        System.out.println(name + " as " + this.getClass().getSimpleName().toUpperCase()  + " (" + coordinates + ")");
     }
 
     public Line(String name, List<Coordinates> coordinates) {
