@@ -2,6 +2,7 @@ package at.stderr.Comparing;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
 
 /**
@@ -36,24 +37,41 @@ public class Main
         System.out.println("P:" + (int)'P' + " " +
                 "p:" +(int)'p');
 
+        Student ann = new Student("Ann");
         Student tim = new Student("Tim");
+        Student zach = new Student("Zach");
         Student students[] = {
-                new Student("Zach"),
-                new Student("Tim"),
-                new Student("Ann")
+                zach,
+                tim,
+                ann,
         };
 
         Arrays.sort(students);
         System.out.println(Arrays.toString(students));
 
         System.out.println("result = " + tim.compareTo(new Student("TIM")));
+
+        Comparator<Student> gpaComparator = new StundentGPAComparator();
+        Arrays.sort(students, gpaComparator.reversed());
+        System.out.println(Arrays.toString(students));
+        System.out.println(ann.gpa + ann.name);
+        System.out.println(tim.gpa + tim.name);
+        System.out.println(gpaComparator.compare(tim, ann));
+    }
+}
+
+class StundentGPAComparator implements Comparator<Student> {
+
+    @Override
+    public int compare(Student o1, Student o2) {
+        return (o1.gpa + o1.name).compareTo(o2.gpa +o2.name);
     }
 }
 
 class Student implements Comparable<Student> {
     private static int LAST_ID = 1000;
     private static Random random = new Random();
-    private String name;
+    String name;
     private int id;
     protected double gpa;
 
@@ -70,7 +88,7 @@ class Student implements Comparable<Student> {
 
     @Override
     public String toString() {
-        return name;
+        return "%d - %s (%.2f)".formatted(id, name, gpa);
     }
 
 //    @Override
@@ -81,6 +99,9 @@ class Student implements Comparable<Student> {
 
     @Override
     public int compareTo(Student o) {
-        return name.compareTo(o.name);
+        // return name.compareTo(o.name);
+        // .compareTo is an Object method from interface comparable so we need to
+        // box the primitive id
+        return Integer.valueOf(id).compareTo(Integer.valueOf(o.id));
     }
 }
