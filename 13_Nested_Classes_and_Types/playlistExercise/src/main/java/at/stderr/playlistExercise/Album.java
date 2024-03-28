@@ -2,17 +2,18 @@ package at.stderr.playlistExercise;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Album {
     private String name;
     private String artist;
 
-    private ArrayList<Song> songs;
+    private SongList songs;
 
     public Album(String name, String artist) {
         this.name = name;
         this.artist = artist;
-        this.songs = new ArrayList<>();
+        this.songs = new SongList();
     }
 
     public boolean addSong(String title, double duration) {
@@ -46,5 +47,30 @@ public class Album {
 
         // XXX: should return an UNKNOWN song?
         return null;
+    }
+
+    public class SongList {
+        private List<Song> songs;
+
+        public SongList() {
+            this.songs = new ArrayList<>();
+        }
+
+        public boolean add(Song song) {
+
+        }
+
+        private Song findSong(String title) {
+            for(Song s : songs) {
+                if (s.getTitle().equals(title)) return s;
+            }
+
+            // XXX: should return an UNKNOWN song?
+            return null;
+        }
+
+        private Song findSong(int tracknumber) {
+            return new Song();
+        }
     }
 }
