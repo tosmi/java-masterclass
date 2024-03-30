@@ -1,5 +1,7 @@
 .DEFAULT_GOAL: topic
 TOPIC ?= ""
+LOWER_TOPIC = $(shell echo $(TOPIC) | tr A-Z a-z)
+ARCHETYPE_VERSION ?= 1.4.1
 
 ###############
 # Help Target #
@@ -23,4 +25,4 @@ ifeq ($(strip $(TOPIC)),)
 	@echo "TOPIC needs to be defined"
 	@exit 1
 endif
-	mvn archetype:generate -DgroupId=at.stderr.$(TOPIC) -DartifactId=$(TOPIC) -DarchetypeGroupId=at.stderr -DarchetypeArtifactId=archetype-simple -DarchetypeVersion=1.4.0
+	mvn archetype:generate -DgroupId=at.stderr.$(LOWER_TOPIC) -DartifactId=$(LOWER_TOPIC) -DarchetypeGroupId=at.stderr -DarchetypeArtifactId=archetype-simple -DarchetypeVersion=$(ARCHETYPE_VERSION)
