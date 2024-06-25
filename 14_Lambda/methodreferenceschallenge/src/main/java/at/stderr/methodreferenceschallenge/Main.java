@@ -2,6 +2,7 @@ package at.stderr.methodreferenceschallenge;
 
 import java.io.StringBufferInputStream;
 import java.util.*;
+import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
 /**
@@ -23,6 +24,9 @@ public class Main
     static void main( String[] args ) {
         String[] array = {"Toni", "Anna", "Bob", "Martha"};
         Person toni = new Person("Toni");
+
+        // either UnaryOperator<String> or Function<String, String>
+        //List<Function<String,String>> t = new ArrayList<>(List.of(
         List<UnaryOperator<String>> t = new ArrayList<>(List.of(
                 String::toUpperCase,
                 s -> s += " " + (char) random.nextInt(65,92) + ".",
@@ -37,8 +41,6 @@ public class Main
         //t.add( s -> s += " " + (char) random.nextInt(65,92) + ".");
 
         transformArray(array, t);
-
-
     }
 
     public static void transformArray(String[] array, List<UnaryOperator<String>> transformers) {
