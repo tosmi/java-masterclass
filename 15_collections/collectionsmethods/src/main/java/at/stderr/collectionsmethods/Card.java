@@ -10,6 +10,7 @@ public record Card(Suit suit, String face, int rank) {
         CLUB, DIAMOND, HEART, SPADE;
 
         public char getImage() {
+            // same order as Suit enum (CLUB, DIAMOND, HEART, SPADE)
             return (new char[]{9827,9830,9829,9824})[this.ordinal()];
 
             // or, IMHO this is more robust than relying on the right order
