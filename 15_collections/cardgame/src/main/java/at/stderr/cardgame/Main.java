@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-record Player(String name, List<Card> hand) {
+record Player(String name, List<Card> hand, Ranking rank) {
 
     Player(String name) {
-        this(name, new ArrayList<Card>(5));
+        this(name, new ArrayList<Card>(5), Ranking.NONE);
     }
 
     @Override
     public String toString() {
-        return "Name: " + name + "\nHand: " + hand;
+        return "%s - %s - %s".formatted(name, hand, rank);
     }
 }
 public class Main 
@@ -27,10 +27,13 @@ public class Main
                 )
         );
 
+        game.printDeck();
         game.shuffle();
         game.printDeck();
-
-        System.out.println(players.get(0));
-        game.deal(players);
+        game.cutDeck();
+        game.printDeck();
+        game.deal(players, 5);
+        System.out.println("---------------------");
+        players.forEach(System.out::println);
     }
 }
