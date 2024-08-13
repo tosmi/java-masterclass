@@ -54,11 +54,8 @@ public class FiveCardDraw {
         int cardsDealt = cardsInHand * players.size();
         int cardsRemaining = deck.size() - cardsDealt;
 
-
-        var test = new ArrayList<>(Collections.nCopies(cardsRemaining, null));
-        test.replaceAll(c -> deck.get(cardsDealt + test.indexOf(c)));
-
         // nCopies returns immutable list, so replaceAll does not work
+        // remainingCards = Collections.nCopies(...)
         remainingCards.addAll(Collections.nCopies(cardsRemaining, null));
         this.remainingCards.replaceAll(c -> deck.get(cardsDealt + remainingCards.indexOf(c)));
     }
