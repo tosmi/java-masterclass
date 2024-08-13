@@ -71,20 +71,10 @@ public record Card(Suit suit, String face, int rank) {
     }
 
     public static void printDeck(List<Card> deck, String description, int rows) {
-        var deckLength = deck.size();
-        var cardsPerRow = (deckLength / rows);
+        System.out.println(
+                deckToString(deck, description, rows)
+        );
 
-        System.out.println("------------------------------------");
-
-        if (!Objects.isNull(description))
-            System.out.println(description);
-
-        for (int i = 0; i < rows; i++) {
-            int startIndex = i * cardsPerRow;
-            int endIndex = i * cardsPerRow + cardsPerRow;
-            deck.subList(startIndex, endIndex).forEach(c -> System.out.print(c + " "));
-            System.out.println();
-        }
 
         /*int currentColumn = 0;
         for (Card card : deck) {
@@ -96,6 +86,27 @@ public record Card(Suit suit, String face, int rank) {
             currentColumn++;
         }
         System.out.println();*/
+    }
+
+    public static String deckToString(List<Card> deck, String description, int rows) {
+        StringBuffer sb = new StringBuffer();
+
+        var deckLength = deck.size();
+        var cardsPerRow = (deckLength / rows);
+
+        sb.append("------------------------------------\n");
+
+        if (!Objects.isNull(description))
+            System.out.println(description);
+
+        for (int i = 0; i < rows; i++) {
+            int startIndex = i * cardsPerRow;
+            int endIndex = i * cardsPerRow + cardsPerRow;
+            deck.subList(startIndex, endIndex).forEach(c -> sb.append(c + " "));
+            sb.append("\n");
+        }
+
+        return sb.toString();
     }
 
     public String toString() {

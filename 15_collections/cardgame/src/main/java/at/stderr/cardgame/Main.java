@@ -18,7 +18,7 @@ record Player(String name, List<Card> hand, Ranking rank) {
 public class Main 
 {
     public static void main( String[] args ) {
-        FiveCardDraw game = new FiveCardDraw();
+
         List players = new ArrayList<>(Arrays.asList(
                 new Player("Toni"),
                 new Player("Franz"),
@@ -26,14 +26,16 @@ public class Main
                 new Player("Hans")
                 )
         );
+        FiveCardDraw game = new FiveCardDraw(players, 5);
 
         game.printDeck();
         game.shuffle();
         game.printDeck();
         game.cutDeck();
         game.printDeck();
-        game.deal(players, 5);
-        System.out.println("---------------------");
-        players.forEach(System.out::println);
+        game.deal(players);
+
+        System.out.println(game);
+
     }
 }
