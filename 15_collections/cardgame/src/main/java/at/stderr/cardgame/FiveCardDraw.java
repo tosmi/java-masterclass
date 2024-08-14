@@ -1,9 +1,6 @@
 package at.stderr.cardgame;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class FiveCardDraw {
     List<Card> deck = Card.getStandardDeck();
@@ -34,11 +31,11 @@ public class FiveCardDraw {
         deck.addAll(firstHalf);*/
     }
 
-    public void deal(List<Player> players) {
+    public void deal() {
 
         var deckIndex = 0;
         for (int i = 0; i < cardsInHand; i++) {
-                for (Player p : players) {
+                for (Player p : this.players) {
                     p.hand().add(deck.get(deckIndex));
                     deckIndex++;
             }
@@ -58,6 +55,59 @@ public class FiveCardDraw {
         // remainingCards = Collections.nCopies(...)
         remainingCards.addAll(Collections.nCopies(cardsRemaining, null));
         this.remainingCards.replaceAll(c -> deck.get(cardsDealt + remainingCards.indexOf(c)));
+    }
+
+    public void evaluateHands() {
+        for (Player p : this.players) {
+            rankCards(p.hand());
+        }
+    }
+
+    private void rankCards(List<Card> hand) {
+        var sorting = Comparator.comparing(Card::rank).thenComparing(Card::suit).reversed();
+        hand.sort(sorting);
+        System.out.println("------");
+        System.out.println(hand);
+        List<Integer> ranks = new ArrayList<>(5);
+        hand.forEach(card -> ranks.add(card.rank()));
+        System.out.println(ranks);
+
+        var pairs = 0;
+        var score = Ranking.NONE;
+
+        // needs an iterator because we modify the ranks list on the fly
+        Iterator<Integer> i = ranks.iterator();
+        while (i.hasNext())
+
+        ranks.forEach(r -> {
+            var freqency = Collections.frequency(ranks, ranks.get(0));
+
+            switch (freqency) {
+                case 1 -> {}
+                case 2 -> {
+                    if (score == Ranking.NONE) {
+                        score = Ranking.ONE_PAIR;
+                    } else if (score == Ranking.ONE_PAIR) {
+                        score = Ranking.TWO_PAIR;
+                    } else if (score == Ranking.THREE_OF_A_KIND) {
+                        score = Ranking.FULL_HOUSE;
+                    }
+                }
+                case 3 -> {
+                    if (score == Ranking.NONE) {
+                        score = Ranking.THREE_OF_A_KIND;
+                    } else if (score == Ranking.TWO_PAIR) {
+                        score = Ranking.FULL_HOUSE;
+                    }
+                }
+                case 4 -> {
+                    score = Ranking.FOUR_OF_A_KIND;
+                }
+            }
+            ranks.remove(0);
+        }
+
+        System.out.println("Final ranking: " + score);
     }
 
     @Override

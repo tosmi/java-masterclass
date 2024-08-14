@@ -26,6 +26,7 @@ public class Main
                 new Player("Hans")
                 )
         );
+
         FiveCardDraw game = new FiveCardDraw(players, 5);
 
         game.printDeck();
@@ -33,9 +34,11 @@ public class Main
         game.printDeck();
         game.cutDeck();
         game.printDeck();
-        game.deal(players);
+        game.deal();
 
-        System.out.println(game);
+        game.evaluateHands();
+
+        // System.out.println(game);
 
     }
 }
