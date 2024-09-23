@@ -33,9 +33,16 @@ public class Main
         System.out.println("# of elements in mySet = " + mySet.size());
 
         for (String setValue : mySet) {
+            System.out.println("Comparing with ==: ");
             System.out.print(setValue + ": ");
             for (int i = 0; i < hellos.size(); i++) {
                 if (setValue == hellos.get(i)) {
+                    System.out.print(i + ", ");
+                }
+            }
+            System.out.println("\nComparing with .equals(): ");
+            for (int i = 0; i < hellos.size(); i++) {
+                if (setValue.equals(hellos.get(i))) {
                     System.out.print(i + ", ");
                 }
             }

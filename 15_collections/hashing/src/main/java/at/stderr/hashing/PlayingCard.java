@@ -8,7 +8,8 @@ public class PlayingCard {
     public PlayingCard(String suit, String face) {
         this.suit = suit;
         this.face = face;
-        this.internalHashcode = 1;
+        // this.internalHashcode = 1;
+        this.internalHashcode = (suit.equals("Hearts") ? 11 : 12);
     }
 
     @Override
@@ -16,7 +17,7 @@ public class PlayingCard {
         return face + " of " + suit;
     }
 
-    @Override
+    /*@Override
     public int hashCode() {
         return internalHashcode;
     }
@@ -29,5 +30,25 @@ public class PlayingCard {
     public boolean equals(Object obj) {
         System.out.println("--> Checking PlayingCard equality");
         return true;
+    }*/
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        PlayingCard that = (PlayingCard) o;
+        return suit.equals(that.suit) && face.equals(that.face);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = suit.hashCode();
+        // 31 because this spreads out hash codes
+        // reducing the chance of different objects having the same
+        // hash code
+        // important if data in object cluster or follows a pattern
+        result = 31 * result + face.hashCode();
+        return result;
     }
 }
