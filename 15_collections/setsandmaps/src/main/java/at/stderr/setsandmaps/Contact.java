@@ -13,21 +13,39 @@ public class Contact {
     private Set<String> phones = new HashSet<>();
 
     public Contact(String name) {
-        this(name, "unknown");
-
+        this(name, null);
     }
 
     public Contact(String name, String email) {
         this(name, email, 0);
     }
 
+    public Contact(String name, long phone) {
+        this(name, null, phone);
+    }
+
     public Contact(String name, String email, long phone) {
         this.name = name;
-        this.emails.add(email);
-        this.phones.add(transformPhone(phone));
+        if ( email != null ) {
+            this.emails.add(email);
+        }
+
+        if ( phone > 0 ) {
+            String phoneNumber = transformPhone(phone);
+            if (phoneNumber != "unknown") {
+                this.phones.add(transformPhone(phone));
+            }
+        }
     }
 
     private String transformPhone(long phone) {
+        String transformedPhone;
+
+        transformedPhone = transformPhoneString(phone);
+        return transformedPhone;
+    }
+
+    private String transformPhoneScanner(long phone) {
         String transformedPhone;
         Scanner s = new Scanner( Long.toString(phone) );
 
@@ -40,6 +58,16 @@ public class Contact {
         transformedPhone = "(" + r.group(1) + ") " + r.group(2) + " " + r.group(3);
 
         System.out.println("phone: " + transformedPhone);
+        return transformedPhone;
+    }
+
+    private String transformPhoneString(long phone) {
+        String transformedPhone = String.valueOf(phone);
+        transformedPhone = "(%s) %s %s".formatted(
+                transformedPhone.substring(0,3),
+                transformedPhone.substring(3,6),
+                transformedPhone.substring(6));
+
         return transformedPhone;
     }
 
@@ -57,6 +85,27 @@ public class Contact {
     }
 
     public Contact mergeContactData(Contact other) {
-        return other;
+        if ( !this.equals(other) ) {
+            System.out.println("This is a different contact: " + other.getName());
+        };
+
+        Contact newContact = new Contact(this.name);
+        //System.out.println("new: " + newContact);
+        newContact.emails.addAll(this.emails);
+        //System.out.println("new: " + newContact);
+        newContact.phones.addAll(this.phones);
+        newContact.emails.addAll(other.emails);
+        newContact.phones.addAll(other.phones);
+
+        return newContact;
     }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Contact contact)) return false;
+
+        return getName().equals(contact.getName());
+    }
+
 }
