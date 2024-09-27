@@ -2,6 +2,7 @@ package at.stderr.setsandmaps;
 
 import java.sql.SQLOutput;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.regex.MatchResult;
@@ -100,6 +101,16 @@ public class Contact {
         return newContact;
     }
 
+    /*@Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Contact contact)) return false;
+
+        return getName().equals(contact.getName());
+    }
+
+*/
+
     @Override
     public final boolean equals(Object o) {
         if (this == o) return true;
@@ -108,4 +119,26 @@ public class Contact {
         return getName().equals(contact.getName());
     }
 
+    @Override
+    public int hashCode() {
+        return 31 * getName().hashCode();
+    }
+
+    public void addEmail(String companyName) {
+        String[] names = name.split(" ");
+        String email = "%c%s@%s.com".formatted(name.charAt(0), names[names.length-1],
+                companyName.replaceAll(" ", "").toLowerCase());
+        if (!emails.add(email)) {
+            System.out.println(name + " now already has email " + email);
+        } else {
+            System.out.println(name + " now has email " + email);
+        }
+    }
+
+    public void replaceEmailIfExists(String oldEmail, String newEmail) {
+        if (emails.contains(oldEmail)) {
+            emails.remove(oldEmail);
+            emails.add(newEmail);
+        }
+    }
 }
