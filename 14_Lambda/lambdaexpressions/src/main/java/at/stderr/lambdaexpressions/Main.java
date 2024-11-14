@@ -24,7 +24,7 @@ public class Main
         }
 
         System.out.println("-----");
-        // var is not strictly requierd, type can be infered
+        // var is not strictly required, type can be inferred
         list.forEach((s) -> System.out.println(s));
 
         System.out.println("-----");
