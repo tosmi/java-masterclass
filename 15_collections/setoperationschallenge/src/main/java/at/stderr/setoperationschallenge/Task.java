@@ -1,13 +1,11 @@
 package at.stderr.setoperationschallenge;
 
-import java.util.Objects;
-
 enum Priority {
-    LOW, MEDIUM, HIGH;
+    LOW, MEDIUM, HIGH
 }
 
 enum Status {
-    IN_QUEUE, ASSIGNED, IN_PROGRESS;
+    IN_QUEUE, ASSIGNED, IN_PROGRESS
 }
 
 public class Task implements  Comparable<Task>{
