@@ -1,14 +1,13 @@
 package at.stderr.setoperationschallenge;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TaskData {
-    private static String taskData = """
+    private Set<Task> tasks = new HashSet<>();
+    private static final String TASK_DATA = """
 All Tasks
 Infrastructure, Logging, High
 Infrastructure, DB Access, Medium
@@ -45,8 +44,6 @@ Data Access, Write Views, Low
             """;
 
     public Set<Task> getTasks(String assignee) {
-        //System.out.println(taskData.indexOf("Ann's Tasks"));
-        //System.out.println(taskData.indexOf('\n', taskData.indexOf("Ann's Tasks")));
         String marker = switch(assignee.toLowerCase()) {
             case "all" -> "All Tasks";
             case "ann" -> "Ann's Tasks";
@@ -56,18 +53,15 @@ Data Access, Write Views, Low
         };
 
         Pattern p = Pattern.compile("^" + marker + "(.+?)(?:^$|\\Z)", Pattern.MULTILINE | Pattern.DOTALL);
-        Matcher m = p.matcher(taskData);
+        Matcher m = p.matcher(TASK_DATA);
 
-        Set tasks = new HashSet();
         if (m.find())
-            tasks = toSet(m.group(1), assignee.toLowerCase().equals("all") ? null : assignee);
+            toSet(m.group(1), assignee.equalsIgnoreCase("all") ? null : assignee);
 
         return tasks;
     }
 
-    private static Set toSet(String lines, String assignee) {
-
-        Set tasks = new HashSet();
+    private void toSet(String lines, String assignee) {
         for(String line : lines.strip().split("\n")) {
             String[] data = line.split(",");
 
@@ -88,6 +82,5 @@ Data Access, Write Views, Low
                         Priority.valueOf(data[2].strip().toUpperCase()),
                         Status.IN_QUEUE));
         }
-        return tasks;
     }
 }
