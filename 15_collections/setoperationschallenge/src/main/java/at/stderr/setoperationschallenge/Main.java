@@ -45,8 +45,5 @@ public class Main
         List<Task> list = new ArrayList<>(collection);
         list.sort(comparator);
         list.forEach(System.out::println);
-
-
-
     }
 }
